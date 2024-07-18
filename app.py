@@ -4,13 +4,17 @@ import tempfile
 import os
 from moviepy.editor import VideoFileClip
 
+# Assume the ICO file is in the same directory as the script
+# and is named 'linearloop_icon.ico'
+icon_path = "10001.ico"
+
 st.set_page_config(
-    page_title="MoM Generator",
-    page_icon="🤖",
+    page_title="MoM Generator - Linearloop",
+    page_icon=icon_path
 )
 
 # Initialize Groq client
-client = Groq(api_key=st.secrets["token"])
+client = Groq(api_key="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")
 
 def video_to_audio(video_file):
     with tempfile.NamedTemporaryFile(delete=False, suffix=".mp4") as tmp_video_file:
@@ -65,7 +69,22 @@ def generate_mom(system, prompt):
         st.error(f"An error occurred during MoM generation: {str(e)}")
         return None
 
-# Streamlit UI
+# Sidebar
+st.sidebar.image("10001.ico")
+st.sidebar.header("About")
+st.sidebar.info("This app generates Minutes of Meeting (MoM) from uploaded audio or video files using AI powered technology. Currently it works for Hindi and English Audio Files!")
+st.sidebar.markdown("---")
+st.sidebar.subheader("Developer")
+st.sidebar.info("Sunil\nAI/ML Engineer @ Linearloop")
+st.sidebar.markdown("[Visit Linearloop](https://linearloop.io)")
+
+# Main content
+col1, col2, col3 = st.columns([1, 2, 1])
+
+with col1:
+    st.image("D:\Learning\MoM Generator\linearloopcolorlogo 1.png", width=150)  # Reduced image size
+
+# Changed this part to align the title to the left
 st.title("AI-Powered MoM Generator")
 st.write("Upload your audio or video file (Hindi, English), Get the MoM from this tool in seconds! Max Size for file is 25Mb! Still in Beta...")
 
@@ -122,5 +141,5 @@ if uploaded_file is not None:
             else:
                 st.error("File processing failed. Please try again with a different file.")
 
-st.sidebar.header("About")
-st.sidebar.info("This app generates Minutes of Meeting (MoM) from uploaded audio or video files using AI powered technology. Currently it is working for Hindi and English Audio Files!")
+st.markdown("---")
+st.markdown("Powered by Linearloop | Developed by Sunil, AI/ML Engineer @ Linearloop")
