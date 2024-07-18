@@ -82,7 +82,7 @@ st.sidebar.markdown("[Visit Linearloop](https://linearloop.io)")
 col1, col2, col3 = st.columns([1, 2, 1])
 
 with col1:
-    st.image("D:\Learning\MoM Generator\linearloopcolorlogo 1.png", width=150)  # Reduced image size
+    st.image("linearloopcolorlogo 1.png", width=150)  # Reduced image size
 
 # Changed this part to align the title to the left
 st.title("AI-Powered MoM Generator")
