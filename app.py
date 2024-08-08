@@ -86,6 +86,7 @@ with col1:
 
 # Changed this part to align the title to the left
 st.title("AI-Powered MoM Generator")
+st.subheader("This is old portal go to new portal for latest: https://generativeloop.streamlit.app/")
 st.write("Upload your audio or video file (Hindi, English), Get the MoM from this tool in seconds! Max Size for file is 25Mb! Still in Beta...")
 
 # System prompt
